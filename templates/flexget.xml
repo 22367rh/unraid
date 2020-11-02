@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+  <Beta>True</Beta>
+  <Category>Network:Web</Category>
+  <Name>FlexGet</Name>
+  <Description>
+	UnRAID container for FlexGet[br][br]
+    https://www.flexget.com/[br][br]
+    [b][span style='color: #E80000;']Directions:[/span][/b][br]
+    [b]/config[/b] : this path is used to store the configuration[br]
+    [b]/downloads[/b] : this path is where the downloads are stored[br]
+  </Description>
+  <Registry>https://hub.docker.com/repository/docker/22367rh/flexget/</Registry>
+  <GitHub>https://github.com/22367rh/unraid</GitHub>
+  <Repository>22367rh/flexget</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+  <Environment>
+    <Variable>
+      <Name>WEB_PASSWD</Name>
+      <Value></Value>
+    </Variable>
+    <Variable>
+      <Name>TORRENT_PLUGIN</Name>
+      <Value>transmission</Value>
+    </Variable>
+    <Variable>
+      <Name>TZ</Name>
+      <Value>Pacific/Auckland</Value>
+    </Variable>
+    <Variable>
+      <Name>FLEXGET_LOG_LEVEL</Name>
+      <Value>debug</Value>
+    </Variable>
+  </Environment>
+  <Data>
+    <Volume>
+      <HostDir>/flexget/config/</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+	<Volume>
+      <HostDir>/flexget/downloads/</HostDir>
+      <ContainerDir>/downloads</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:81]/</WebUI>
+  <Banner>https://flexget.com/_static/flexget.png</Banner>
+  <Icon>https://www.flexget.com/static/img/favicon.ico</Icon>
+</Container>
